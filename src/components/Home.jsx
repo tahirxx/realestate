@@ -4,6 +4,7 @@ import Features from './Features'
 import Footer from './Footer'
 
 
+
 export default function Home() {
   return (
     <div>
@@ -11,6 +12,6 @@ export default function Home() {
       <Hero />
       <Features />
       <Footer/>
-    </div>
+     </div>
   )
 }

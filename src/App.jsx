@@ -6,6 +6,8 @@ import Home from './components/Home';
 import './index.css'
 import Listing from './components/Listing';
 
+
+
 function App() {
 
  return (
@@ -16,6 +18,7 @@ function App() {
          <Route path="/" element={<Home />} />
          <Route path="/Listing" element={<Listing/>} />
          <Route path="/login" element={<Login />} />
+          
        </Routes>
 
      </div>
