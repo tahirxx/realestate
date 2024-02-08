@@ -6,30 +6,15 @@ export default function Login(props) {
 const [email, setEmail] = useState('');  
 const [password, setPassword] = useState('');  
 
+
 //function for handling form submission//
 const handleSubmit = async (event) => {
   event.preventDefault(); //to prevent page reload and loss our state. 
-  axios.post('' {name, email, password})
+  axios.post('http://localhost:3001/register', {email, password})
   .then(result => console.log(result)
   ).catch(err => console.log(err))
-  //getting data from input field
-  // const formData = {
-  //   email: event.target.email.value,
-  //   password: event.target.password.value,
-  // };
-try {
-  const response = await axios.post('http://apo?', {
-    email, 
-    password
-  });
-
-  console.log('Login successful', response.data);
-} catch (error) {
-console.log('Login error', error.response.data);
+ 
 }
-  
-}
-
 
 
     return (
