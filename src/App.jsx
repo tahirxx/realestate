@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
 import Navbar from './components/Navbar'
 import Login from './components/Login'
 import Home from './components/Home';
@@ -9,11 +8,6 @@ import Register from './components/Register';
 
 
 function App() {
-const [currentForm, setCurrentForm] = useState('Login');
-
-const toggleForm = () => {
-  setCurrentForm(currentForm === 'Login' ? 'Register' : 'Login');
-}
 
  return (
    <Router>
@@ -21,14 +15,14 @@ const toggleForm = () => {
        <Navbar />
        <Routes>
          <Route path="/" element={<Home />} />
-         <Route path="/Listing" element={<Listing/>} />
-         <Route path="/login" element={currentForm === 'Login' ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm} />} />
-          
+         <Route path="/Listing" element={<Listing />} />
+         <Route path="/login" element={<Login />} />
+         <Route path="/register" element={<Register />} />
        </Routes>
 
      </div>
    </Router>
- )
+   )
 }
 
 

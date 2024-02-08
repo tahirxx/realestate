@@ -1,8 +1,12 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
-import axios from 'axios';
 
-export default function Login(props) {
+import axios from 'axios';
+import { useNavigate, Link } from "react-router-dom";
+
+export default function Login() {
+
+const history = useNavigate();
+
 const [email, setEmail] = useState('');  
 const [password, setPassword] = useState('');  
 
@@ -10,11 +14,25 @@ const [password, setPassword] = useState('');
 //function for handling form submission//
 const handleSubmit = async (event) => {
   event.preventDefault(); //to prevent page reload and loss our state. 
-  axios.post('http://localhost:3001/register', {email, password})
-  .then(result => console.log(result)
-  ).catch(err => console.log(err))
- 
-}
+
+    try {
+      const res = await axios.post('http://localhost:8000/login',
+      { email, password })
+      
+        if(res.data === "exist"){
+         history('/');
+         alert("Successfully logged in")
+        }
+        else if(res.data === "notexist") {
+          alert("User have not registered")
+        }
+      }
+         catch (e) {
+        alert('wrong details');
+        console.log(e);
+      }
+    
+} 
 
 
     return (
@@ -30,7 +48,7 @@ const handleSubmit = async (event) => {
           </div>
 <div></div>  
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form className="space-y-6" action="#" onSubmit={handleSubmit} method="POST" >
+            <form className="space-y-6" action="POST" onSubmit={handleSubmit} method="POST" >
               <div>
                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                   Email address
@@ -83,14 +101,14 @@ const handleSubmit = async (event) => {
                 </button>
               </div>
             </form>
-          <button onClick={() => props.onFormSwitch('register')}>Dont have an account? <strong>Register here</strong>.
-          </button>
+              
+              <br />
+
+            <Link to="/register" >Sign-up Page</Link>
           </div>
         </div>
       </>
     )
   }
   
-  Login.propTypes = {
-    onFormSwitch: PropTypes.func.isRequired,
-  };
+  

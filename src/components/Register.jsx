@@ -1,16 +1,33 @@
-import { useState } from "react";
-import PropTypes from 'prop-types';
+import  { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
 
-export default function Register({ onFormSwitch }) {
+export default function Register() {
     const [email, setEmail] = useState('');  
     const [password, setPassword] = useState(''); 
     const [name, setName] = useState('');  
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault(); 
-        console.log();
+        try {
+            const res = await axios.post('http://localhost:8000/register', 
+                { name, email, password });
+           
+                if(res.data === "exist"){
+                alert("User already exists");
+            }
+            else if(res.data === "notexist"){
+                navigate('/');
+            }
+          
+          } catch(e) {
+            alert('An error occurred')
+            console.log(e)
+       
+          }
     }
-
+    
   return (
     
        <>
@@ -55,6 +72,7 @@ export default function Register({ onFormSwitch }) {
                     name="email"
                     value={email}
                     type="email"
+                    
                     placeholder='email'
                     autoComplete="email"
                     required
@@ -88,8 +106,8 @@ export default function Register({ onFormSwitch }) {
                     className="block w-full rounded-md border-0 py-1.5 px-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
+
               </div>
-  
               <div>
                 <button
                   type="submit"
@@ -98,9 +116,11 @@ export default function Register({ onFormSwitch }) {
                   Sign in
                 </button>
               </div>
+              
             </form>
-          <button onClick={() => onFormSwitch('login')}>Already have an account? <strong>Login here</strong>.
-          </button>
+          <br />
+
+          <Link to="/login" >Login Page</Link>
           </div>
         </div>
       </>
@@ -109,6 +129,3 @@ export default function Register({ onFormSwitch }) {
   
 }
 
-Register.propTypes = {
-    onFormSwitch: PropTypes.func.isRequired,
-  };
