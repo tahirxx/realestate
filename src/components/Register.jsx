@@ -1,53 +1,52 @@
-import { useState } from 'react';
+import { useState } from "react";
 import PropTypes from 'prop-types';
-import axios from 'axios';
 
-export default function Login(props) {
-const [email, setEmail] = useState('');  
-const [password, setPassword] = useState('');  
+export default function Register({ onFormSwitch }) {
+    const [email, setEmail] = useState('');  
+    const [password, setPassword] = useState(''); 
+    const [name, setName] = useState('');  
 
-//function for handling form submission//
-const handleSubmit = async (event) => {
-  event.preventDefault(); //to prevent page reload and loss our state. 
-  axios.post('' {name, email, password})
-  .then(result => console.log(result)
-  ).catch(err => console.log(err))
-  //getting data from input field
-  // const formData = {
-  //   email: event.target.email.value,
-  //   password: event.target.password.value,
-  // };
-try {
-  const response = await axios.post('http://apo?', {
-    email, 
-    password
-  });
+    const handleSubmit = async (event) => {
+        event.preventDefault(); 
+        console.log();
+    }
 
-  console.log('Login successful', response.data);
-} catch (error) {
-console.log('Login error', error.response.data);
-}
-  
-}
-
-
-
-    return (
-      <>
+  return (
+    
+       <>
         
         <div className="flex min-h-full flex-1 flex-col justify-center  px-6 py-40 lg:px-8">
           <div className="flex justify-center flex-col items-center sm:mx-auto sm:w-full sm:max-w-sm">
             
   
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-              Sign in to your account
+              Register 
             </h2>
           </div>
-<div></div>  
+  
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <form className="space-y-6" action="#" onSubmit={handleSubmit} method="POST" >
+            <div>
+                <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
+                  Full name
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="name"
+                    name="name"
+                    value={name}
+                    type="name"
+                    placeholder='Full name'
+                    autoComplete="name"
+                    required
+                    onChange={(e) => setName(e.target.value)}
+                    className="block w-full rounded-md border-0 py-1.5 px-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+              </div>
+              
               <div>
-                <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                <label htmlFor="F" className="block text-sm font-medium leading-6 text-gray-900">
                   Email address
                 </label>
                 <div className="mt-2">
@@ -56,6 +55,7 @@ console.log('Login error', error.response.data);
                     name="email"
                     value={email}
                     type="email"
+                    placeholder='email'
                     autoComplete="email"
                     required
                     onChange={(e) => setEmail(e.target.value)}
@@ -83,6 +83,7 @@ console.log('Login error', error.response.data);
                     type="password"
                     autoComplete="current-password"
                     required
+                    placeholder="password"
                     onChange={(e) => setPassword(e.target.value)}
                     className="block w-full rounded-md border-0 py-1.5 px-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
@@ -98,14 +99,16 @@ console.log('Login error', error.response.data);
                 </button>
               </div>
             </form>
-          <button onClick={() => props.onFormSwitch('register')}>Dont have an account? <strong>Register here</strong>.
+          <button onClick={() => onFormSwitch('login')}>Already have an account? <strong>Login here</strong>.
           </button>
           </div>
         </div>
       </>
-    )
-  }
+   
+  )
   
-  Login.propTypes = {
+}
+
+Register.propTypes = {
     onFormSwitch: PropTypes.func.isRequired,
   };
