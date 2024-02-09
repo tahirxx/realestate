@@ -5,7 +5,8 @@ import Home from './components/Home';
 import './index.css'
 import Listing from './components/Listing';
 import Register from './components/Register';
-
+import Contact from './components/Contact';
+import About from './components/About'
 
 function App() {
 
@@ -18,6 +19,8 @@ function App() {
          <Route path="/Listing" element={<Listing />} />
          <Route path="/login" element={<Login />} />
          <Route path="/register" element={<Register />} />
+         <Route path="/about" element={<About />} />
+         <Route path="/contact" element={<Contact />} />
        </Routes>
 
      </div>

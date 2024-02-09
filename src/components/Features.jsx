@@ -68,7 +68,7 @@ const posts = [
             {posts.map((post) => (
               <article key={post.id} className="flex max-w-xl flex-col items-start justify-between">
                 <div className="bg-red">
-                   <img src={post.imageUrls} alt="" className="h-300 w-100 rounded-md transition duration-300 ease-in-out transform shadow-custom cursor-pointer" />
+                   <img src={post.imageUrls} alt="" className="transition duration-500 ease-in-out transform hover:scale-110 h-300 w-100 rounded-md shadow-custom cursor-pointer" />
                     
                 </div>
                 <div className="flex items-center gap-x-4 text-xs">

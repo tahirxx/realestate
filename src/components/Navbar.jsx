@@ -7,8 +7,8 @@ import Login from './Login'
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Listing', href: '/Listing' },
-  { name: 'Property', href: '#' },
-  { name: 'Contact', href: '#' }
+  { name: 'About', href: '/about' },
+  { name: 'Contact', href: '/contact' }
 ]
 
 export default function Navbar() {
@@ -18,12 +18,16 @@ export default function Navbar() {
     <div >
       <header className="bg-gray-300 absolute inset-x-0 top-0 z-50">
         <nav className=" flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-          <div className="flex lg:flex-1">
-           
-              <span className="sr-only">Your Company</span>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="cursor-pointer w-6 h-6">
+          <div className="flex lg:flex-1 ">
+            
+            <a href='/'>
+               <svg xmlns="http://www.w3.org/2000/svg" fill="none"  viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="cursor-pointer w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
             </svg>
+            </a>
+            <a href='/'>
+             <h1 className='text-lg ml-1 font-mono'>RealtyHub</h1>
+            </a>
           </div>
           <div className="flex lg:hidden">
             <button
@@ -37,13 +41,13 @@ export default function Navbar() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+              <a key={item.name} href={item.href} className="hover:bg-blue-300 w-24 text-center rounded text-sm font-semibold leading-6 text-gray-900">
                 {item.name}
               </a>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="/Login" className="text-sm font-semibold leading-6 text-gray-900">
+            <a href="/Login" className="text-sm font-semibold leading-6 text-gray-900 hover:bg-blue-300 w-24 text-center rounded ">
               Log in <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
@@ -57,7 +61,7 @@ export default function Navbar() {
               <a href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
                 <img
-                  className="h-8 w-auto cursor-pointer"
+                  className="h-8 w-auto cursor-pointer "
                   src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                   alt=""
                 />
@@ -87,7 +91,7 @@ export default function Navbar() {
                 <div className="py-6">
                 <a
                     href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className="-mx-3 hover:bg-blue-300 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900"
                   >
                     <Login />
                     Log in

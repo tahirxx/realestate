@@ -19,6 +19,7 @@ export default function Register() {
             }
             else if(res.data === "notexist"){
                 navigate('/');
+                alert("Successfully registered")
             }
           
           } catch(e) {
