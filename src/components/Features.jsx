@@ -15,7 +15,7 @@ const posts = [
         name: 'Jane Doe',
         role: 'Real Estate Agent',
         href: '#',
-        imageUrl: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' // Placeholder image URL
+        imageUrl: 'https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' // Placeholder image URL
       }
     },
     {
@@ -34,7 +34,7 @@ const posts = [
         name: 'John Smith',
         role: 'Real Estate Agent',
         href: '#',
-        imageUrl: 'https://via.placeholder.com/150' // Placeholder image URL
+        imageUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' // Placeholder image URL
       }
     },
     {
@@ -53,7 +53,7 @@ const posts = [
         name: 'Emily Johnson',
         role: 'Real Estate Agent',
         href: '#',
-        imageUrl: 'https://via.placeholder.com/150' // Placeholder image URL
+        imageUrl: 'https://images.unsplash.com/photo-1512361436605-a484bdb34b5f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' // Placeholder image URL
       }
     }
   ];
@@ -92,7 +92,7 @@ const posts = [
                   <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.description}</p>
                 </div>
                 <div className="relative mt-8 flex items-center gap-x-4">
-                  <img src={post.author.imageUrl} alt="" className="h-10 w-10 rounded-full bg-gray-50" />
+                  <img src={post.author.imageUrl} alt="" className="h-10 w-10 rounded-full bg-cover bg-gray-50" />
                   <div className="text-sm leading-6">
                     <p className="font-semibold text-gray-900">
                       <a href={post.author.href}>

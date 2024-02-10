@@ -26,10 +26,10 @@ export default function Hero() {
             </div>
           </div>
           <div className="text-center flex justify-center flex-col items-center">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-4xl">
+            <h1 className="text-5xl font-bold tracking-tight text-white sm:text-4xl">
               Find Your Dream Home
             </h1>
-            <p className="mt-3 text-md leading-8 text-white">
+            <p className="mt-3 text-lg leading-8 text-white bg-gray-400 rounded-sm px-2">
               From as low as $10 per day with limited time offer discounts.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
